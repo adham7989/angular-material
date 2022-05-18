@@ -1,0 +1,191 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+// index :- 
+
+/* 1
+1. mat-toolbar. 
+2. Container -> 2.1 => filter field.
+                2.2 => table. 
+                2.3 => paginator.
+
+3. Animations.                 
+
+*/
+
+                                // ------------------------------------
+
+
+                                        // 1. mat-toolbar 
+                                      // ------------------------
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-toolbar {
+    padding: 50px;
+  }
+  .mat-toolbar span{
+    font-size: 30px;
+    letter-spacing: 0.1cm;
+    background: linear-gradient(to left , red , blue);
+    // padding: 10px;
+    // animation: headerAnimation 5s infinite alternate ;
+  }
+  .addProduct .mat-icon {
+    margin-left: 5px;
+  }
+
+  .mat-toolbar button{
+    font-size: 20px;
+    transition: all 2s ;
+    transition-property:  color , linear-gradient, padding ;
+  }
+
+  .mat-toolbar button:nth-child(4):hover{
+    padding: 10px;
+    
+  }
+
+  //                               ------------------------------------  
+
+                                          //2.1 => filter field.
+                                      //----------------------- 
+
+                                        
+.filter-field {
+  position: relative;
+}
+
+.filter-field .mat-icon{
+  position: absolute;
+  right: 0px;
+  top: 3px;
+}
+
+  
+                           // ----------------------------------------------  
+
+                                    //  2.2 => table.
+                                    // ----------------- 
+
+
+  table {
+
+    width: 100%;   
+    margin-top: 10px;
+    text-align: center;
+    // background-color: #000064;
+    position: relative;
+
+  } 
+      
+    th, td
+     {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+
+  }
+
+
+.mat-header-cell {
+  background-color: black;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  padding: 20px;
+}
+
+.mat-cell{
+  padding: 20px;
+}
+
+table tr {
+  cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+table tr:nth-child(odd){
+  background-color:snow ;
+  animation: oddRows 3s infinite alternate;
+}
+
+
+table tr:nth-child(even){
+  background-color:lightblue ;
+  animation: evenRows 3s infinite alternate;
+}
+
+i{
+
+  position: absolute;
+  top: 10px;
+  color: red;
+}
+
+img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+.mat-header-cell {
+  animation: tableheadersAnimation 3s infinite alternate ;
+}
+
+.editIcon , .deleteIcon{
+  transition: font-size 1s;
+}
+.editIcon:hover  , .deleteIcon:hover {
+  font-size: 30px;
+}
+
+
+                  // -------------------------------------------------
+
+                                    // 2.3 => paginator.
+                               //-----------------------------
+
+.mat-paginator{
+  padding: 20px;
+  background: linear-gradient(to right ,#c4a7e2 , #6F26AC);
+  color: #fff;
+  font-size: 15px;
+}
+
+                    // -------------------------------------------------
+
+
+               
+
+                                        // 3. Animations. 
+                                    // ----------------------
+
+@keyframes headerAnimation {
+  25%{color: rgb(255, 123, 0) ;}
+  50%{color: rgb(194, 247, 20) ;}
+  75%{color: #fff ;} 
+  100%{color: rgb(8, 255, 251) ;} 
+}
+@keyframes evenRows {
+  50%{background-color:lightblue ;}
+  100%{background-color: snow;}  
+}
+@keyframes oddRows {
+  50%{background-color: snow;}
+  100%{background-color:lightblue ;} 
+}
+@keyframes tableheadersAnimation{
+  50%{background-color: red;}
+  100%{background-color: #000;}
+}
+
+                        // -------------------------------------------------
+
+                                      

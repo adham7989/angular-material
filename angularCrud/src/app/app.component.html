@@ -1,0 +1,101 @@
+
+<!-- header  -->
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>home</mat-icon>
+  </button>
+ <span>CRUD Operation Using Angular Material  & Json-Server</span>
+ <span class="example-spacer"></span>
+ <button mat-raised-button color="warn" (click)="openDialog()" class="addProduct">add product
+  <mat-icon >add_circle_outline</mat-icon>
+ </button>
+
+</mat-toolbar>
+
+
+
+<div class="container">
+  
+  <!-- filter section -->
+  <mat-form-field class="filter-field" appearance="fill">
+    <mat-label>Filter</mat-label>
+    <input matInput #control (keyup)="applyFilter($event)" style="padding: 5px;">
+    <mat-icon class="filter-icon ">filter_list</mat-icon>
+
+  </mat-form-field>
+  
+  
+ 
+<!-- table section  -->
+  <table mat-table [dataSource]="dataSource" >
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef > ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> product Name  </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef > Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="freshness">
+      <th mat-header-cell *matHeaderCellDef > freshness </th>
+      <td mat-cell *matCellDef="let element"> {{element.freshness }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef > Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price | currency }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef > Image </th>
+      <td mat-cell *matCellDef="let element"> <img src={{element.imageURL}} class="img-thumbnail "> </td>
+    </ng-container>
+
+
+
+
+    <ng-container matColumnDef="actions" >
+      <th mat-header-cell *matHeaderCellDef >Actions </th>
+      <td mat-cell *matCellDef="let element"> 
+        <button  mat-icon-button color="primary" (click)="editProduct(element)">
+          <mat-icon class="editIcon">edit</mat-icon>
+        </button>
+        <button mat-icon-button  color="warn" (click)="deleteProduct(element.id)">
+          <mat-icon class="deleteIcon">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row matRipple  *matRowDef="let row; columns: displayedColumns;" ></tr>
+
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{control.value}}"</td>
+    </tr>
+
+
+
+
+  </table>
+
+  <mat-paginator [length]="20" [pageSize]="3" [pageSizeOptions]="[3, 8, 15, 20]"></mat-paginator>
+
+  <!-- <p [ngStyle]="backgroundColor:getColor()">server with id  number{{serverID}} is {{serverStatus}}</p> -->
+
+</div>
+

@@ -1,0 +1,9 @@
+1 - install angular material => npm add @angular/material .
+ 
+
+ You need to import the Angular Material Theme URL inside your CSS file.
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+2 - 
